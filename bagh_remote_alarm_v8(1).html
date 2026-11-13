@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1210">
+<meta http-equiv="Cache-Control" content="no-store">
+<title>چراغ‌های باغ - از راه دور (دزدگیر v8)</title>
+<style>
+:root{--bg:#0a1311;--tx:#f2f7f3;--mut:#b2c4b9;--ok:#57d38c;--bad:#ff6b6b;--glass:rgba(18,32,27,.50);--gb:rgba(255,255,255,.17)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(6,14,11,.22),rgba(6,14,11,.5)),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20400%20800%27%20preserveAspectRatio%3D%27xMidYMax%20slice%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%270%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23050d12%27%2F%3E%3Cstop%20offset%3D%27.55%27%20stop-color%3D%27%230d2a2a%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%2314402f%27%2F%3E%3C%2FlinearGradient%3E%3CradialGradient%20id%3D%27m%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23ffe9b0%27%20stop-opacity%3D%27.55%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23ffe9b0%27%20stop-opacity%3D%270%27%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%27400%27%20height%3D%27800%27%20fill%3D%27url%28%23g%29%27%2F%3E%3Ccircle%20cx%3D%27300%27%20cy%3D%27130%27%20r%3D%2790%27%20fill%3D%27url%28%23m%29%27%2F%3E%3Ccircle%20cx%3D%27300%27%20cy%3D%27130%27%20r%3D%2726%27%20fill%3D%27%23fff1c9%27%2F%3E%3Cg%20fill%3D%27%23fff%27%20opacity%3D%27.7%27%3E%3Ccircle%20cx%3D%2740%27%20cy%3D%2770%27%20r%3D%271.4%27%2F%3E%3Ccircle%20cx%3D%27120%27%20cy%3D%27140%27%20r%3D%271.2%27%2F%3E%3Ccircle%20cx%3D%27200%27%20cy%3D%2760%27%20r%3D%271.6%27%2F%3E%3Ccircle%20cx%3D%2770%27%20cy%3D%27210%27%20r%3D%271%27%2F%3E%3Ccircle%20cx%3D%27360%27%20cy%3D%27250%27%20r%3D%271.3%27%2F%3E%3Ccircle%20cx%3D%27170%27%20cy%3D%27250%27%20r%3D%271%27%2F%3E%3Ccircle%20cx%3D%27250%27%20cy%3D%27180%27%20r%3D%271.1%27%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%27M0%20560%20Q90%20480%20190%20540%20T400%20500%20V800%20H0Z%27%20fill%3D%27%230f2f26%27%2F%3E%3Cpath%20d%3D%27M0%20640%20Q120%20570%20250%20630%20T400%20610%20V800%20H0Z%27%20fill%3D%27%230a2019%27%2F%3E%3Cg%20fill%3D%27%2306110d%27%3E%3Crect%20x%3D%2752%27%20y%3D%27560%27%20width%3D%2712%27%20height%3D%27140%27%2F%3E%3Ccircle%20cx%3D%2758%27%20cy%3D%27520%27%20r%3D%2746%27%2F%3E%3Ccircle%20cx%3D%2728%27%20cy%3D%27560%27%20r%3D%2732%27%2F%3E%3Ccircle%20cx%3D%2792%27%20cy%3D%27556%27%20r%3D%2734%27%2F%3E%3Crect%20x%3D%27334%27%20y%3D%27590%27%20width%3D%2710%27%20height%3D%27110%27%2F%3E%3Ccircle%20cx%3D%27339%27%20cy%3D%27556%27%20r%3D%2738%27%2F%3E%3Ccircle%20cx%3D%27314%27%20cy%3D%27592%27%20r%3D%2726%27%2F%3E%3Ccircle%20cx%3D%27364%27%20cy%3D%27590%27%20r%3D%2728%27%2F%3E%3Cpath%20d%3D%27M170%20700%20L195%20610%20L220%20700Z%27%2F%3E%3Cpath%20d%3D%27M215%20700%20L232%20640%20L250%20700Z%27%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%27M0%20710%20Q150%20670%20400%20700%20V800%20H0Z%27%20fill%3D%27%23050e0b%27%2F%3E%3Cg%20fill%3D%27%23ffb84a%27%20opacity%3D%27.8%27%3E%3Ccircle%20cx%3D%2740%27%20cy%3D%27548%27%20r%3D%272.4%27%2F%3E%3Ccircle%20cx%3D%2770%27%20cy%3D%27532%27%20r%3D%272.4%27%2F%3E%3Ccircle%20cx%3D%2796%27%20cy%3D%27566%27%20r%3D%272.4%27%2F%3E%3Ccircle%20cx%3D%27326%27%20cy%3D%27568%27%20r%3D%272.4%27%2F%3E%3Ccircle%20cx%3D%27350%27%20cy%3D%27548%27%20r%3D%272.4%27%2F%3E%3Ccircle%20cx%3D%27372%27%20cy%3D%27600%27%20r%3D%272.4%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") center bottom/cover no-repeat}
+body{margin:0 auto;color:var(--tx);font-family:Tahoma,system-ui,sans-serif;min-height:100vh;padding:calc(14px + env(safe-area-inset-top)) 14px calc(30px + env(safe-area-inset-bottom));max-width:560px}
+button,input,select{font:inherit;color:inherit}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+h1{margin:0;font-size:26px;font-weight:800;text-shadow:0 2px 10px #000a}
+.glass,.box,.l,.tabs,.slot,.st span{background:var(--glass);border:1px solid var(--gb);-webkit-backdrop-filter:blur(10px) saturate(130%);backdrop-filter:blur(10px) saturate(130%);box-shadow:0 8px 22px -12px #000c,inset 0 1px 0 rgba(255,255,255,.14)}
+.st{display:flex;gap:6px;font-size:11px}
+.st span{display:flex;align-items:center;gap:5px;padding:5px 9px;border-radius:14px}
+.st i{width:8px;height:8px;border-radius:50%;background:var(--mut)}
+.st .ok i{background:var(--ok);box-shadow:0 0 8px var(--ok)}.st .bad i{background:var(--bad)}
+.box{border-radius:22px;padding:16px;margin-bottom:14px}
+.box h2{margin:0 0 10px;font-size:15px}
+label{display:block;font-size:12px;color:var(--mut);margin:10px 0 4px}
+input,select{width:100%;height:42px;border-radius:12px;border:1px solid var(--gb);background:rgba(6,14,11,.55);padding:0 10px;direction:ltr;text-align:left}
+select{direction:rtl;text-align:right}
+input[type=checkbox]{width:22px;height:22px;accent-color:#ffa032;flex:none}
+input:focus,select:focus{outline:2px solid #ffa032;outline-offset:1px}
+input.need{border-color:var(--bad);box-shadow:0 0 0 2px rgba(255,107,107,.35)}
+.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}
+.btn{--h:110,200,170;height:44px;border-radius:14px;border:1px solid rgba(var(--h),.6);background:linear-gradient(135deg,rgba(var(--h),.14),rgba(var(--h),.78));color:#fff;font-weight:700;cursor:pointer;padding:0 12px;text-shadow:0 1px 2px #0009;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 6px 16px -8px rgba(var(--h),.9)}
+.btn.p{--h:255,160,50;background:linear-gradient(135deg,rgba(var(--h),.32),rgba(var(--h),1))}
+.btn.c1{--h:255,160,50}.btn.c2{--h:90,150,255}.btn.c3{--h:60,200,125}.btn.c4{--h:255,95,110}.btn.c5{--h:170,110,255}.btn.c6{--h:40,200,210}
+.btn:active{transform:scale(.97)}
+#msg{font-size:13px;min-height:20px;margin-top:12px;color:#ffd08a;line-height:1.8}#msg.e{color:var(--bad)}
+.tabs{display:flex;gap:6px;border-radius:18px;padding:4px;margin-bottom:14px}
+.tabs button{flex:1;height:40px;border:0;border-radius:14px;background:none;color:var(--mut);font-weight:700;cursor:pointer}
+.tabs button.on{color:#fff;background:linear-gradient(135deg,rgba(255,160,50,.45),rgba(255,120,30,1))}
+.tabs button.on:nth-child(2){background:linear-gradient(135deg,rgba(170,110,255,.45),rgba(130,70,255,1))}
+.tabs button.on:nth-child(3){background:linear-gradient(135deg,rgba(90,150,255,.45),rgba(50,110,255,1))}
+.tabs button.on:nth-child(4){background:linear-gradient(135deg,rgba(255,95,110,.45),rgba(235,50,70,1))}
+.tabs button.on:nth-child(5){background:linear-gradient(135deg,rgba(40,200,210,.45),rgba(20,150,170,1))}
+.tabs button{font-size:13px;padding:0 2px}
+.icb{width:44px;height:38px;display:inline-flex;align-items:center;justify-content:center;padding:0}.icb svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gcard{border:1px solid var(--gb);border-radius:16px;padding:12px;margin-top:12px}.gcard input[type=text],.gcard .gnm{flex:3}
+.all{display:flex;gap:10px;margin-bottom:12px}.all .btn{flex:1}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.l{position:relative;border-radius:22px;padding:16px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:background .2s,box-shadow .2s,border-color .2s}
+.l:active{transform:scale(.98)}
+.l{border-inline-start:4px solid rgba(var(--c,255,176,70),.8)}.l.on{background:linear-gradient(160deg,rgba(var(--c,255,176,70),.45),rgba(var(--c,255,176,70),.16));border-color:rgba(var(--c,255,176,70),.9);box-shadow:0 0 26px -6px rgb(var(--c,255,138,43)),inset 0 1px 0 rgba(255,255,255,.2)}.l.sel{outline:3px solid #fff;outline-offset:-3px}
+.l.pend{opacity:.6}
+.l svg{width:32px;height:32px;stroke:var(--mut);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.l.on svg{stroke:rgb(var(--c,255,210,122));filter:drop-shadow(0 0 6px rgb(var(--c,255,138,43)))}
+.nm{font-weight:800;font-size:15px;margin-top:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 1px 3px #0008}
+.sub{font-size:11px;color:var(--mut);line-height:1.7}.l.on .sub{color:#fff}
+.ed{position:absolute;top:8px;left:8px;width:36px;height:36px;border-radius:10px;border:0;background:rgba(255,255,255,.08);color:var(--mut);font-size:18px;cursor:pointer}
+.hint{font-size:11px;color:var(--mut);line-height:1.9;margin-top:10px}
+.lk{background:none;border:0;color:#ffc46b;font-size:12px;padding:6px 0;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{--h:150,175,160;min-width:40px;height:36px;padding:0 10px;border-radius:12px;border:1px solid rgba(var(--h),.5);background:linear-gradient(135deg,rgba(var(--h),.10),rgba(var(--h),.45));color:#eaf3ec;cursor:pointer;font-weight:700}
+.chip:nth-child(6n+1){--h:255,160,50}.chip:nth-child(6n+2){--h:90,150,255}.chip:nth-child(6n+3){--h:60,200,125}.chip:nth-child(6n+4){--h:255,95,110}.chip:nth-child(6n+5){--h:170,110,255}.chip:nth-child(6n){--h:40,200,210}
+.chip.on{background:linear-gradient(135deg,rgba(var(--h),.6),rgba(var(--h),1));border-color:rgba(var(--h),1);color:#fff;text-shadow:0 1px 2px #0009}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:rgba(9,18,15,.80);border:1px solid var(--gb);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-radius:24px 24px 0 0;width:100%;max-width:560px;max-height:92vh;overflow:auto;padding:16px 14px calc(24px + env(safe-area-inset-bottom))}
+.sh-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.sh-h b{font-size:17px}
+.slot{border-radius:16px;padding:12px;margin-top:10px}
+.bar{height:10px;border-radius:6px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:linear-gradient(90deg,rgba(255,160,50,.4),#ff9a2b)}
+.rp{display:flex;justify-content:space-between;font-size:13px}.rp small{color:var(--mut)}
+.lg{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--gb);font-size:12px}
+.lg i{width:9px;height:9px;border-radius:50%;background:var(--mut);flex:none}.lg i.on{background:#ffb84a;box-shadow:0 0 6px #ffb84a}.lg small{color:var(--mut);margin-inline-start:auto}
+.al{border-radius:22px;padding:14px 16px;margin-bottom:14px;transition:border-color .3s}
+.al .alt{font-weight:800;font-size:16px}
+.al .btn{min-width:120px}
+.al.s-armed{border-color:rgba(87,211,140,.8)}.al.s-arming{border-color:rgba(255,184,74,.85)}.al.s-alarm{border-color:rgba(255,107,107,.95)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:transparent;transition:background .6s}
+html.th-ok{--bg:#052a14;--glass:rgba(10,62,32,.58);--gb:rgba(130,255,175,.38)}
+html.th-ok body::after{background:rgba(25,190,95,.45)}
+html.th-bad{--bg:#2d0508;--glass:rgba(84,10,14,.64);--gb:rgba(255,125,125,.45)}
+html.th-bad body::after{background:rgba(235,25,35,.52);animation:thp 1s ease-in-out infinite alternate}
+@keyframes thp{from{opacity:.55}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){html.th-bad body::after{animation:none}}
+.sw{width:34px;height:34px;border-radius:50%;border:3px solid transparent;padding:0;cursor:pointer;flex:none}.sw.on{border-color:#fff}
+.gbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.gbar .btn{flex:1 1 90px}
+.inf{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:7px 0;border-top:1px solid var(--gb)}.inf span{color:var(--mut)}.inf b{text-align:left;font-weight:700}
+#toast{position:fixed;inset-inline:14px;bottom:calc(18px + env(safe-area-inset-bottom));max-width:520px;margin:0 auto;padding:12px 16px;border-radius:14px;background:rgba(10,20,16,.93);border:1px solid var(--gb);z-index:20;font-size:13px;text-align:center}#toast.e{border-color:var(--bad);color:#ffc9c9}
+#alc.s-armed,#alc.s-arming{background:linear-gradient(160deg,rgba(40,190,110,.38),rgba(15,110,60,.5));border-color:rgba(87,211,140,.95)}
+.tabs button.g{background:linear-gradient(135deg,rgba(40,190,110,.6),rgba(20,150,80,1))!important;color:#fff}
+.tabs button.r{background:linear-gradient(135deg,rgba(255,95,110,.6),rgba(235,50,70,1))!important;color:#fff}
+#pA.green .box{border-color:rgba(87,211,140,.85);background:rgba(20,110,60,.32)}
+#pA.red .box{border-color:rgba(255,107,107,.95);background:rgba(120,15,25,.32)}
+.btn.vt{background:linear-gradient(135deg,rgba(170,110,255,.5),rgba(130,70,255,1))}.btn.vt.on{background:linear-gradient(135deg,rgba(255,176,70,.6),rgba(255,120,30,1))}
+a.btn{display:flex;align-items:center;justify-content:center;text-decoration:none;text-align:center;line-height:1.5}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><h1>باغ <small style="font-size:11px;color:var(--ok);font-weight:700">نسخه‌ی دزدگیر ✓ ۸</small></h1><div class="st"><span id="sc"><i></i><b>قطع</b></span><span id="sd"><i></i><b>ماژول؟</b></span></div></header>
+<div class="box" id="lcl" style="padding:12px"><a class="btn c5" href="http://192.168.4.1" rel="noopener" style="width:100%;height:48px">ورود محلی: باز کردن مستقیم پنل ماژول (192.168.4.1)</a><div class="hint" style="margin:8px 0 0;text-align:center">گوشی باید به وای‌فای «bagh» ماژول وصل باشد. بدون اینترنت هم کار می‌کند.</div></div>
+<div class="box al" id="alc"><div class="row"><div style="flex:1.7"><div class="alt" id="alT">دزدگیر: ؟</div><div class="hint" id="alS" style="margin:4px 0 0"></div><div class="hint" id="alP" style="margin:6px 0 0;font-weight:700"></div><div class="hint" id="alI" style="margin:6px 0 0"></div></div><button class="btn c3" id="alB" disabled>؟</button></div></div>
+
+<div class="box" id="cfg">
+  <h2>اتصال به سرور</h2>
+  <label>نام خود را وارد کنید</label><input id="me" maxlength="8" placeholder="نام شما" autocomplete="off" style="direction:rtl;text-align:right">
+  <label>آدرس سرور</label><input id="host" value="g1d68888.ala.asia-southeast1.emqxsl.com" autocapitalize="off" spellcheck="false">
+  <label>پورت WebSocket (TLS)</label><input id="port" value="8084" inputmode="numeric">
+  <label>نام کاربری</label><input id="user" autocapitalize="off" autocomplete="username" spellcheck="false">
+  <label>رمز عبور</label><input id="pass" type="password" autocomplete="current-password">
+  <div class="row" style="margin-top:14px"><button class="btn p c3" id="go">اتصال</button><button class="btn c4" id="stop">قطع اتصال</button></div>
+  <div id="msg"></div>
+  <div class="hint">نام کاربری و رمز همانی است که در EMQX ساخته‌اید و فقط روی همین گوشی ذخیره می‌شود.</div>
+</div>
+<button class="lk" id="tg" hidden>تنظیمات اتصال</button>
+
+<div id="main" hidden>
+  <div class="tabs" id="tabs"><button data-t="L" class="on">چراغ‌ها</button><button data-t="V">حالت سفر</button><button data-t="R">گزارش</button><button data-t="A">دزدگیر</button><button data-t="S">تنظیمات</button></div>
+  <div id="pL"><div class="all"><button class="btn p c1" id="allon">روشن همه</button><button class="btn c2" id="alloff">خاموش همه</button></div><div class="all"><button class="btn c5" id="gsel">انتخاب گروهی</button><button class="btn vt" id="vtog">حالت سفر</button></div><div class="grid" id="grid"></div><div class="gbar" id="gbar" hidden></div>
+    <div class="hint">برای تغییر نام، رنگ، تایمر، خاموشی خودکار و زمان‌بندی هر چراغ، دکمه‌ی ⚙ روی همان کارت را بزنید. برای تنظیم چند چراغ با هم، «انتخاب گروهی» را بزنید.</div></div>
+  <div id="pV" hidden></div>
+  <div id="pR" hidden></div>
+  <div id="pA" hidden></div>
+  <div id="pS" hidden></div>
+</div>
+<div id="toast" hidden></div>
+<div class="ov" id="ov" hidden><div class="sheet" id="sheet"></div></div>
+
+<script>
+(function(){
+var $=function(id){return document.getElementById(id)};
+var enc=new TextEncoder(),dec=new TextDecoder();
+var ws=null,want=false,buf=new Uint8Array(0),pingT=null,retryT=null,gap=2000,connected=false,opened=false,connT=null,gotSub=false;
+var lights=[null,null,null,null,null,null,null,null],pend=[0,0,0,0,0,0,0,0],dev='?';
+var D={n:[],ic:[],mx:[],rn:[],sch:[],main:null,mainAt:0,stats:null,log:null},openI=-1,tab='L',fa='۰۱۲۳۴۵۶۷۸۹';
+var SN=['دستی','زمان‌بندی','تایمر','خاموشی خودکار','مسافرت','دکمه','بازیابی','پایان دسترسی مهمان','ربات','اینترنت (MQTT)','دزدگیر'];
+var RES=[2,3]; /* RES[0] = relay of the PIR sensor, RES[1] = relay of the siren (not lights); same as PIR_RELAY and SIREN_RELAY in the module code */
+var DAYS=[['ش',6],['ی',0],['د',1],['س',2],['چ',3],['پ',4],['ج',5]];
+function f(n){return String(n).replace(/\d/g,function(d){return fa[d]})}
+function p2(n){return (n<10?'0':'')+n}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function hm(m){return p2(Math.floor(m/60))+':'+p2(m%60)}
+function fm(m){return m>=60?f(Math.floor(m/60))+' ساعت '+(m%60?f(m%60)+' دقیقه':''):f(m)+' دقیقه'}
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+
+/* ---- minimal MQTT 3.1.1 over WebSocket ---- */
+function u16(n){return [n>>8,n&255]}
+function str(s){var b=enc.encode(s);return u16(b.length).concat(Array.prototype.slice.call(b))}
+function remLen(n){var o=[],d;do{d=n%128;n=Math.floor(n/128);if(n>0)d|=128;o.push(d)}while(n>0);return o}
+function pkt(first,body){return new Uint8Array([first].concat(remLen(body.length),body))}
+function send(p){if(ws&&ws.readyState===1)ws.send(p)}
+function pub(topic,val){send(pkt(0x30,str(topic).concat(Array.prototype.slice.call(enc.encode(val)))))}
+function me(){return $('me').value.replace(/[@&<>"]/g,'').trim().slice(0,8)}
+function tagMe(){var m=me();return m?'@'+m:''}
+function cmd(q){if(!ok())return false;pub('home/cfg/cmd',q);return true}
+var toastT=0;
+function msg(t,err){var m=$('msg');m.textContent=t;m.className=err?'e':'';if(connected&&$('cfg').hidden){var o=$('toast');o.textContent=t;o.className=err?'e':'';o.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){o.hidden=true},2600)}}
+function badge(id,cls,txt){var e=$(id);e.className=cls;e.querySelector('b').textContent=txt}
+function status(){
+  var c=ws&&ws.readyState===1&&connected;
+  var lc=$('lcl');if(lc)lc.hidden=!!c;   // the local-entry button is only needed while not connected
+  badge('sc',c?'ok':(want?'':'bad'),c?'متصل':(want?'در حال اتصال':'قطع'));
+  badge('sd',dev==='online'?'ok':(dev==='offline'?'bad':''),dev==='online'?'ماژول آنلاین':(dev==='offline'?'ماژول آفلاین':'ماژول؟'));
+}
+function ok(){
+  if(!connected){msg('اتصال برقرار نیست',true);return false}
+  if(dev==='offline'){msg('ماژول آفلاین است؛ برق و اینترنت ماژول را بررسی کنید',true);return false}
+  return true;
+}
+var TOP=['names','sch','main','stats','log','alarm','guests'];
+function handle(type,flags,body){
+  if(type===2){
+    if(body[1]===0){
+      clearTimeout(connT);connected=true;gap=2000;gotSub=false;msg('متصل شد ✓',false);
+      var s=[0,1].concat(str('home/lights/+/state'),[0],str('home/device/status'),[0],str('home/alarm/state'),[0],str('home/alarm/pir'),[0],str('home/alarm/fw'),[0],str('home/alarm/info'),[0]);
+      TOP.forEach(function(t){s=s.concat(str('home/cfg/'+t),[0])});
+      send(pkt(0x82,s));
+      setTimeout(function(){if(connected)cmd('op=get')},1500);
+      clearInterval(pingT);pingT=setInterval(function(){send(new Uint8Array([0xC0,0]))},20000);
+      $('cfg').hidden=true;$('tg').hidden=false;$('main').hidden=false;status();render();
+    }else{
+      var why={1:'نسخه‌ی پروتکل پذیرفته نشد',2:'شناسه‌ی کلاینت نامعتبر',3:'سرور در دسترس نیست',4:'نام کاربری یا رمز اشتباه است',5:'این کاربر اجازه‌ی اتصال ندارد'}[body[1]]||'اتصال رد شد';
+      want=false;msg(why,true);$('cfg').hidden=false;status();
+    }
+  }else if(type===9){
+    if(!gotSub){gotSub=true;pub('home/cfg/cmd','op=get')}
+  }else if(type===3){
+    var tl=(body[0]<<8)|body[1],topic=dec.decode(body.slice(2,2+tl)),qos=(flags>>1)&3,off=2+tl+(qos?2:0),raw=dec.decode(body.slice(off)),val=raw.trim().toUpperCase();
+    var m=/^home\/lights\/([1-8])\/state$/.exec(topic);
+    if(m){var i=+m[1]-1;lights[i]=(val==='ON');clearTimeout(pend[i]);pend[i]=0;render();clearTimeout(handle.mt);handle.mt=setTimeout(function(){pub('home/cfg/cmd','op=main')},700)}
+    else if(topic==='home/alarm/state'){setAlarm(val)}
+    else if(topic==='home/alarm/pir'){PIR=(val==='1');pirUI()}
+    else if(topic==='home/alarm/fw'){FW=val;pirUI()}
+    else if(topic==='home/alarm/info'){setInfo(raw)}
+    else if(topic==='home/device/status'){dev=val==='ONLINE'?'online':'offline';status()}
+    else if(topic.indexOf('home/cfg/')===0){
+      var j;try{j=JSON.parse(raw)}catch(e){return}
+      var k=topic.slice(9);
+      if(k==='names'){D.n=j.n;D.ic=j.ic;D.mx=j.mx;D.rn=j.rn||[];render();if(openI>=0)openSheet(openI,true)}
+      else if(k==='sch'){D.sch=j.sch;if(openI>=0)openSheet(openI,true)}
+      else if(k==='main'){D.main=j;D.mainAt=Date.now();render();vtogUI();if(tab==='V')renderV()}
+      else if(k==='stats'){D.stats=j.m;if(tab==='R')renderR()}
+      else if(k==='log'){D.log=j.l;D.logAt=Date.now();if(tab==='R')renderR();if(tab==='A')renderA()}
+      else if(k==='alarm'){D.al=j;if(tab==='A')renderA();if(tab==='V')renderV()}
+      else if(k==='guests'){D.gs=j.g;if(tab==='S')renderS()}
+    }
+  }
+}
+function onData(e){
+  var d=new Uint8Array(e.data),t=new Uint8Array(buf.length+d.length);t.set(buf);t.set(d,buf.length);buf=t;
+  for(;;){
+    if(buf.length<2)return;
+    var mul=1,len=0,i=1,b;
+    do{if(i>=buf.length)return;b=buf[i++];len+=(b&127)*mul;mul*=128}while(b&128);
+    if(buf.length<i+len)return;
+    var type=buf[0]>>4,flags=buf[0]&15,body=buf.slice(i,i+len);
+    buf=buf.slice(i+len);handle(type,flags,body);
+  }
+}
+function open(){
+  clearTimeout(retryT);
+  var host=$('host').value.trim(),port=$('port').value.trim()||'8084',user=$('user').value.trim(),pw=$('pass').value;
+  $('me').classList.remove('need');
+  if(!me()){msg('نام خود را وارد کنید',true);$('me').classList.add('need');$('me').focus();want=false;return}
+  if(!host||!user||!pw){msg('آدرس، نام کاربری و رمز را وارد کنید',true);want=false;return}
+  sv('bagh_cfg',{host:host,port:port,user:user,pass:pw,me:me()});
+  want=true;connected=false;opened=false;buf=new Uint8Array(0);status();msg('در حال اتصال به '+host+' …',false);
+  clearTimeout(connT);connT=setTimeout(function(){if(want&&!connected)msg('بعد از ۱۰ ثانیه سرور جواب نداد. VPN را روشن کنید و آدرس و پورت را بررسی کنید.',true)},10000);
+  try{ws=new WebSocket('wss://'+host+':'+port+'/mqtt','mqtt')}catch(e){msg('آدرس معتبر نیست',true);return}
+  ws.binaryType='arraybuffer';
+  ws.onopen=function(){opened=true;var id='web-'+Math.random().toString(16).slice(2,10);send(pkt(0x10,str('MQTT').concat([4,0xC2],u16(30),str(id),str(user),str(pw))))};
+  ws.onmessage=onData;ws.onerror=function(){};
+  ws.onclose=function(){
+    connected=false;clearInterval(pingT);dev='?';status();resetAlarm();
+    if(want){msg(opened?'ارتباط با سرور قطع شد؛ تلاش دوباره…':'به سرور وصل نشد (فیلتر بودن، آدرس یا پورت اشتباه)؛ تلاش دوباره…',true);retryT=setTimeout(open,gap);gap=Math.min(gap*2,15000)}
+  };
+}
+function closeC(){want=false;clearTimeout(connT);clearTimeout(retryT);clearInterval(pingT);if(ws){try{ws.close()}catch(e){}}connected=false;lights=[null,null,null,null,null,null,null,null];resetAlarm();status();render();msg('قطع شد',false);$('cfg').hidden=false;$('main').hidden=true;$('tg').hidden=true;closeSheet()}
+
+
+/* ---- alarm ---- */
+var AL=null,theft=false,greenT=0,alPend=0,PIR=null,FW='',INF=null;
+function pirUI(){
+  var e=$('alP');if(!e)return;
+  if(PIR===null||dev==='offline'){e.textContent='';e.style.color='';return}
+  e.textContent=(PIR?'● حرکت‌سنج: روشن (حرکت می‌بیند)':'● حرکت‌سنج: آرام')+(FW?' · نسخه‌ی ماژول '+f(FW):'');
+  e.style.color=PIR?'#ff6b6b':'#57d38c';
+}
+function setTheme(t){
+  var r=document.documentElement;r.classList.toggle('th-ok',t==='ok');r.classList.toggle('th-bad',t==='bad');
+  var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',t==='ok'?'#0a5a2c':(t==='bad'?'#7a0a12':'#0b1210'));
+}
+function alUI(note){
+  var T=$('alT'),S=$('alS'),B=$('alB'),c=$('alc'),txt,sub='',bt,cls,dis=false,sc='';
+  if(AL==='DISARMED'){txt='دزدگیر: خاموش';bt='مسلح کردن';cls='btn p c3'}
+  else if(AL==='ARMING'){txt='دزدگیر: در حال مسلح شدن…';sub='بیرون بروید؛ بعد از چند ثانیه مسلح می‌شود';bt='لغو';cls='btn c4';sc=' s-arming'}
+  else if(AL==='ARMED'){txt='دزدگیر: مسلح';sub=theft?'هشدار سرقت ثبت شد. آژیر قطع شده ولی دزدگیر هنوز مسلح است.':'';bt='غیرفعال کردن';cls='btn c4';sc=theft?' s-alarm':' s-armed'}
+  else if(AL==='ENTRY'){txt='⚠️ حرکت تشخیص داده شد';sub='آژیر تا چند ثانیه دیگر روشن می‌شود';bt='غیرفعال کردن';cls='btn p c4';sc=' s-alarm'}
+  else if(AL==='ALARM'){txt='🚨 هشدار سرقت! آژیر روشن است';sub='برای قطع آژیر، دزدگیر را غیرفعال کنید';bt='غیرفعال و قطع آژیر';cls='btn p c4';sc=' s-alarm'}
+  else{txt='دزدگیر: ؟';sub=connected?'وضعیت دزدگیر از ماژول دریافت نشده است. برنامه‌ی جدید ماژول را آپلود کرده‌اید؟':'ابتدا به سرور وصل شوید (پایین‌تر، «اتصال»)';bt='؟';cls='btn c3';dis=true}
+  if(dev==='offline')sub='ماژول آفلاین است؛ وضعیت بالا ممکن است قدیمی باشد. '+sub;
+  if(note)sub=note;
+  T.textContent=txt;S.textContent=sub;pirUI();infoUI();
+  var tb=document.querySelector('.tabs button[data-t="A"]'),isG=(AL==='ARMING'||AL==='ARMED')&&!theft,isR=!!theft||AL==='ALARM'||AL==='ENTRY',pa=$('pA');
+  if(tb){tb.classList.toggle('g',isG);tb.classList.toggle('r',isR)}
+  if(pa){pa.classList.toggle('green',isG);pa.classList.toggle('red',isR)}B.textContent=bt;B.className=cls;B.disabled=dis;c.className='box al'+sc;
+}
+function setAlarm(v){
+  var prev=AL;AL=v;clearTimeout(alPend);alPend=0;
+  if(v==='ALARM'||v==='ENTRY')theft=true;
+  if(v==='DISARMED')theft=false;
+  if(v!==prev){
+    if(theft){clearTimeout(greenT);greenT=0;setTheme('bad')}
+    else if(v==='ARMED'&&prev!==null){clearTimeout(greenT);setTheme('ok');greenT=setTimeout(function(){greenT=0;setTheme('')},30000)}
+    else{clearTimeout(greenT);greenT=0;setTheme('')}
+  }
+  alUI();
+}
+function resetAlarm(){AL=null;PIR=null;FW='';INF=null;theft=false;clearTimeout(greenT);greenT=0;clearTimeout(alPend);alPend=0;setTheme('');alUI()}
+$('alB').onclick=function(){
+  if(AL===null||!ok())return;
+  pub('home/alarm/set',(AL==='DISARMED'?'ON':'OFF')+tagMe());
+  $('alB').disabled=true;$('alB').textContent='در حال ارسال…';
+  clearTimeout(alPend);alPend=setTimeout(function(){alPend=0;alUI('ماژول جواب نداد؛ دوباره امتحان کنید')},6000);
+};
+
+/* ---- lights ---- */
+var BULB='<svg viewBox="0 0 24 24"><path d="M9 21h6M10 18h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>';
+function nm(i){if(i===RES[1])return 'آژیر';if(i===RES[0])return 'حرکت‌سنج';return D.n[i]||('چراغ '+f(i+1))}
+function left(k,i){var M=D.main;if(!M||!M[k]||!(M[k][i]>0))return 0;return Math.max(0,M[k][i]-Math.floor((Date.now()-D.mainAt)/1000))}
+function subTxt(i){
+  var on=lights[i]===true,ao=on?left('ao',i):0,an=!on?left('an',i):0,sub=pend[i]?'در حال ارسال…':(lights[i]===null?'نامشخص':(on?'روشن':'خاموش'));
+  if(ao>0)sub+=' · خاموشی تا '+fm(Math.ceil(ao/60));else if(an>0)sub+=' · روشن شدن تا '+fm(Math.ceil(an/60));
+  return sub;
+}
+function tickSubs(){[].forEach.call($('grid').children,function(c,i){var e=c.querySelector('.sub');if(e)e.textContent=subTxt(i)})}
+function render(){
+  var g=$('grid');g.innerHTML='';
+  for(var i=0;i<8;i++)(function(i){
+    if(RES.indexOf(i)>=0)return;
+    var on=lights[i]===true,b=document.createElement('div'),sub=subTxt(i);
+    b.className='l'+(on?' on':'')+(pend[i]?' pend':'')+(selMode&&((selMask>>i)&1)?' sel':'');b.style.setProperty('--c',colOf(i));b.setAttribute('role','button');b.tabIndex=0;
+    b.innerHTML=iconSvg(i)+'<div><div class="nm">'+esc(nm(i))+'</div><div class="sub">'+sub+'</div></div><button class="ed" aria-label="تنظیم چراغ">⚙</button>';
+    function act(){if(selMode){selMask^=(1<<i);render();gbarUI()}else setL(i,!on)}
+    b.onclick=act;
+    b.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act()}};
+    b.querySelector('.ed').onclick=function(e){e.stopPropagation();openSheet(i)};
+    g.appendChild(b);
+  })(i);
+}
+function setL(i,v){
+  if(!ok())return;pub('home/lights/'+(i+1)+'/set',(v?'ON':'OFF')+tagMe());
+  clearTimeout(pend[i]);pend[i]=setTimeout(function(){pend[i]=0;render();msg('ماژول جواب نداد؛ دوباره امتحان کنید',true)},5000);render();
+}
+function setAll(v){if(ok())pub('home/lights/all/set',(v?'ON':'OFF')+tagMe())}
+
+/* ---- light sheet: name, timer, auto-off, schedules ---- */
+function closeSheet(){openI=-1;$('ov').hidden=true}
+function opts(list,cur,fn){return list.map(function(v){return '<option value="'+v+'"'+(v==cur?' selected':'')+'>'+fn(v)+'</option>'}).join('')}
+function slotHtml(i,k){
+  var e=(D.sch[i]&&D.sch[i][k])||[0,127,0,1080,1,360];
+  var ch=DAYS.map(function(d){return '<button class="chip'+((e[1]>>d[1])&1?' on':'')+'" data-b="'+d[1]+'">'+d[0]+'</button>'}).join('');
+  function side(pre,mode,val,lab){
+    return '<label>'+lab+'</label><div class="row"><select class="'+pre+'m" style="flex:1.2"><option value="0"'+(mode==0?' selected':'')+'>ساعت ثابت</option><option value="1"'+(mode==1?' selected':'')+'>'+(pre==='on'?'غروب':'طلوع')+'</option></select>'
+      +'<input class="'+pre+'t" type="time" value="'+(mode==0?hm(Math.max(0,Math.min(1439,val))):'18:00')+'"'+(mode==0?'':' hidden')+'>'
+      +'<input class="'+pre+'o" type="number" min="-180" max="180" value="'+(mode==1?val:0)+'" placeholder="± دقیقه"'+(mode==1?'':' hidden')+'></div>';
+  }
+  return '<div class="slot" data-k="'+k+'"><div class="row"><b style="flex:2">برنامه '+f(k+1)+'</b><span style="flex:none"><input type="checkbox" class="en"'+(e[0]?' checked':'')+'></span></div>'
+    +'<div class="chips" style="margin-top:8px">'+ch+'</div>'+side('on',e[2],e[3],'روشن شدن')+side('off',e[4],e[5],'خاموش شدن')
+    +'<button class="btn p c6 sv" style="width:100%;margin-top:12px">ذخیره‌ی برنامه '+f(k+1)+'</button></div>';
+}
+function openSheet(i,keep){
+  openI=i;$('ov').hidden=false;
+  var sh=$('sheet'),sc=keep?sh.scrollTop:0,mx=D.mx[i]||0;
+  var h='<div class="sh-h"><b>تنظیم '+esc(nm(i))+'</b><button class="btn c4" id="xs" style="height:38px">✕</button></div>'
+   +'<label>نام چراغ</label><div class="row"><input id="nmi" maxlength="14" value="'+esc(D.n[i]||'')+'" style="direction:rtl;text-align:right"><button class="btn p c3" id="nmb" style="flex:none">ذخیره</button></div>'
+   +'<label>آیکن چراغ</label><div class="chips">'+icHtml(i)+'</div>'
+   +'<label>رنگ چراغ</label><div class="chips" style="align-items:center">'+swHtml(i)+'</div>'
+   +'<label>تایمر (روشن شدن و خاموش شدن بعد از …)</label><div class="chips">'+[15,30,60,120,240].map(function(m){return '<button class="chip tm" data-m="'+m+'">'+fm(m)+'</button>'}).join('')+'<button class="chip tm" data-m="0">لغو تایمر</button></div>'
+   +'<label>خاموشی خودکار (هر بار که روشن شود)</label><div class="row"><select id="mxs">'+opts([0,30,60,120,240,480,720,1440],mx,function(v){return v?fm(v):'غیرفعال'})+'</select><button class="btn p c5" id="mxb" style="flex:none">ذخیره</button></div>'
+   +'<label>زمان‌بندی هفتگی</label>'+[0,1,2].map(function(k){return slotHtml(i,k)}).join('')
+   +'<div class="hint">ساعت‌های غروب و طلوع از موقعیت مکانی تنظیم‌شده در ماژول محاسبه می‌شوند.</div>';
+  sh.innerHTML=h;sh.scrollTop=sc;
+  $('xs').onclick=closeSheet;bindSw(i);bindIc(i);
+  $('nmb').onclick=function(){if(cmd('op=name&r='+i+'&n='+encodeURIComponent($('nmi').value.trim())))msg('ارسال شد',false)};
+  $('mxb').onclick=function(){if(cmd('op=max&m='+(1<<i)+'&min='+$('mxs').value))msg('ارسال شد',false)};
+  [].forEach.call(sh.querySelectorAll('.tm'),function(b){b.onclick=function(){if(cmd('op=timer&m='+(1<<i)+'&min='+b.dataset.m))msg(b.dataset.m==='0'?'تایمر لغو شد':'تایمر تنظیم شد',false)}});
+  [].forEach.call(sh.querySelectorAll('.slot'),function(s){
+    [].forEach.call(s.querySelectorAll('.chip'),function(c){c.onclick=function(){c.classList.toggle('on')}});
+    ['on','off'].forEach(function(p){s.querySelector('.'+p+'m').onchange=function(){var m=this.value==='1';s.querySelector('.'+p+'t').hidden=m;s.querySelector('.'+p+'o').hidden=!m}});
+    s.querySelector('.sv').onclick=function(){
+      var days=0;[].forEach.call(s.querySelectorAll('.chip.on'),function(c){days|=1<<(+c.dataset.b)});
+      function side(p){var m=+s.querySelector('.'+p+'m').value,v=m?(+s.querySelector('.'+p+'o').value||0):(function(t){var a=t.split(':');return (+a[0])*60+(+a[1])})(s.querySelector('.'+p+'t').value||'00:00');return [m,v]}
+      var a=side('on'),b=side('off'),en=s.querySelector('.en').checked?1:0;
+      if(en&&!days){msg('حداقل یک روز را انتخاب کنید',true);return}
+      if(cmd('op=sch&m='+(1<<i)+'&sk='+s.dataset.k+'&en='+en+'&days='+days+'&onm='+a[0]+'&on='+a[1]+'&offm='+b[0]+'&off='+b[1]))msg('برنامه ذخیره شد',false);
+    };
+  });
+}
+$('ov').onclick=function(e){if(e.target===$('ov'))closeSheet()};
+
+/* ---- travel mode ---- */
+function renderV(){
+  var M=D.main,p=$('pV');
+  if(!M){p.innerHTML='<div class="box">در حال دریافت از ماژول…</div>';return}
+  var v=M.v,mask=v[1];
+  p.innerHTML='<div class="box"><div class="row"><div><h2 style="margin:0">حالت سفر</h2><div class="hint" style="margin:4px 0 0">بعد از غروب، چراغ‌های انتخابی به‌صورت تصادفی روشن و خاموش می‌شوند تا خانه خالی به نظر نرسد.</div></div><span style="flex:none"><input type="checkbox" id="vo"'+(v[0]?' checked':'')+'></span></div>'
+   +'<label>چراغ‌های حالت سفر</label><div class="chips" id="vm">'+[0,1,2,3,4,5,6,7].filter(function(i){return RES.indexOf(i)<0}).map(function(i){return '<button class="chip'+((mask>>i)&1?' on':'')+'" data-i="'+i+'">'+esc(nm(i))+'</button>'}).join('')+'</div>'
+   +'<label>پایان شب (همه خاموش می‌شوند)</label><input id="ve" type="time" min="18:00" max="23:59" value="'+hm(v[2])+'">'
+   +'<label>حداکثر تأخیر بعد از غروب (دقیقه)</label><input id="vd" type="number" min="0" max="180" value="'+v[3]+'">'
+   +'<label>مدت روشن بودن، از … تا … دقیقه</label><div class="row"><input id="va" type="number" min="1" max="600" value="'+v[4]+'"><input id="vb" type="number" min="1" max="600" value="'+v[5]+'"></div>'
+   +'<label>فاصله‌ی خاموشی، از … تا … دقیقه</label><div class="row"><input id="vc" type="number" min="1" max="600" value="'+v[6]+'"><input id="vd2" type="number" min="1" max="600" value="'+v[7]+'"></div>'
+   +'<div class="row" style="margin-top:14px"><div style="flex:3;font-size:13px">دزدگیر هم‌زمان با حالت سفر: با روشن شدن حالت سفر مسلح شود و با خاموش شدن غیرفعال شود</div><span style="flex:none"><input type="checkbox" id="vv"'+(D.al&&D.al.vac?' checked':'')+(D.al?'':' disabled')+'></span></div>'
+   +'<button class="btn p c5" id="vs" style="width:100%;margin-top:14px">ذخیره</button></div>';
+  [].forEach.call(p.querySelectorAll('#vm .chip'),function(c){c.onclick=function(){c.classList.toggle('on')}});
+  $('vs').onclick=function(){
+    var m=0;[].forEach.call(p.querySelectorAll('#vm .chip.on'),function(c){m|=1<<(+c.dataset.i)});
+    var t=($('ve').value||'23:00').split(':'),end=(+t[0])*60+(+t[1]);
+    if(end<1080||end>1439){msg('پایان شب باید بین ۱۸:۰۰ و ۲۳:۵۹ باشد',true);return}
+    if(cmd('op=vac&on='+($('vo').checked?1:0)+'&mask='+m+'&delay='+$('vd').value+'&a='+$('va').value+'&b='+$('vb').value+'&c='+$('vc').value+'&d='+$('vd2').value+'&end='+end)){if(D.al)cmd('op=alcfg&vac='+($('vv').checked?1:0));msg('ذخیره شد',false)}
+  };
+}
+
+/* ---- report ---- */
+function lgTime(t){if(t<=0)return '—';var d=new Date(t*1000),dd='';try{dd=d.toLocaleDateString('fa-IR',{timeZone:'UTC',month:'2-digit',day:'2-digit'})}catch(x){}return dd+' '+f(p2(d.getUTCHours())+':'+p2(d.getUTCMinutes()))}
+function renderR(){
+  var p=$('pR');
+  if(!D.stats&&!D.log){p.innerHTML='<div class="box">در حال دریافت از ماژول…</div>';return}
+  var h='<div class="box"><h2>زمان روشن بودن هر چراغ</h2>',mx=60;
+  (D.stats||[]).forEach(function(r){r.forEach(function(x){if(x>mx)mx=x})});
+  (D.stats||[]).forEach(function(r,i){
+    if(RES.indexOf(i)>=0)return;
+    var tot=r.reduce(function(a,b){return a+b},0);
+    h+='<div style="margin-top:12px"><div class="rp"><b>'+esc(nm(i))+'</b><small>امروز '+fm(r[0])+' · ۷ روز '+fm(tot)+'</small></div><div class="bar"><i style="width:'+Math.round(100*r[0]/mx)+'%"></i></div></div>';
+  });
+  h+='</div><div class="box"><h2>رویدادهای اخیر</h2><div class="chips" id="rfc" style="margin-bottom:6px">'+['همه','دزدگیر','چراغ‌ها'].map(function(t,k){return '<button class="chip'+(RF===k?' on':'')+'" data-k="'+k+'">'+t+'</button>'}).join('')+'</div>';
+  var shown=0;
+  (D.log||[]).forEach(function(e){
+    var al=e[1]===8;if(RF===1&&!al)return;if(RF===2&&al)return;shown++;
+    if(al)h+='<div class="lg"><i class="'+(e[2]===1?'on':'')+'"></i><span>دزدگیر '+(['غیرفعال شد','مسلح شد','حرکت دیده شد'][e[2]]||'')+'</span><small>'+esc(byTxt(e[3],e[4]))+' · '+fullT(e[0])+'</small></div>';
+    else h+='<div class="lg"><i class="'+(e[2]?'on':'')+'"></i><span>'+esc(nm(e[1]))+' '+(e[2]?'روشن':'خاموش')+'</span><small>'+esc(SN[e[3]]||'')+(e[4]>=200?' · '+esc(D.rn[e[4]-200]||'ریموت'):'')+' · '+lgTime(e[0])+'</small></div>';
+  });
+  if(!shown)h+='<div class="hint">رویدادی ثبت نشده است.</div>';
+  p.innerHTML=h+'</div><button class="btn c2" id="rr" style="width:100%">بروزرسانی</button>';
+  $('rr').onclick=function(){D.stats=null;D.log=null;renderR();cmd('op=rep')};
+  [].forEach.call(p.querySelectorAll('#rfc .chip'),function(c){c.onclick=function(){RF=+c.dataset.k;renderR()}});
+}
+
+
+/* ---- travel mode: quick on/off button (settings stay in the travel tab) ---- */
+function vtogUI(){var b=$('vtog');if(!b)return;var M=D.main;if(!M){b.textContent='حالت سفر';b.classList.remove('on');return}var on=!!M.v[0];b.textContent='حالت سفر: '+(on?'روشن':'خاموش');b.classList.toggle('on',on)}
+function vtogClick(){var M=D.main;if(!M){msg('در حال دریافت از ماژول…',true);cmd('op=get');return}var on=!!M.v[0];if(cmd('op=vacon&on='+(on?0:1)))msg(on?'حالت سفر خاموش شد':'حالت سفر روشن شد',false)}
+
+/* ---- light icons ---- */
+var IK=['bulb','lamp','tree','home','star','wave','car','door','fence','fountain','sun','moon'];
+var IP={bulb:'<path d="M9 21h6M10 18h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',lamp:'<path d="M8 3h8l2 6H6zM12 9v12M8 21h8"/>',tree:'<path d="M12 22v-6M12 3l5 7h-3l4 6H6l4-6H7z"/>',home:'<path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/>',star:'<path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7-6.2-3.4-6.2 3.4 1.4-7L2 9.4l7-.8z"/>',wave:'<path d="M2 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 20c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>',car:'<path d="M3 17v-4l2-5h14l2 5v4M3 17h18M3 17v2M21 17v2M7 13h.01M17 13h.01"/>',door:'<path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17M4 21h16M14 12h.01"/>',fence:'<path d="M5 21V8l2-3 2 3v13M11 21V8l2-3 2 3v13M17 21V8l2-3 2 3v13M3 14h18"/>',fountain:'<path d="M12 21v-8M8 21h8M12 13c-4 0-6-3-6-7M12 13c4 0 6-3 6-7M12 10c-1.5-2-1.5-4 0-6 1.5 2 1.5 4 0 6z"/>',sun:'<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>',moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>'};
+function svgI(k){return '<svg viewBox="0 0 24 24">'+(IP[k]||IP.bulb)+'</svg>'}
+function iconSvg(i){return svgI(IK[(D.ic&&D.ic[i])||0])}
+function icHtml(i){return IK.map(function(k,j){return '<button class="chip icb'+((((D.ic&&D.ic[i])||0)===j)?' on':'')+'" data-ic="'+j+'" aria-label="آیکن">'+svgI(k)+'</button>'}).join('')}
+function bindIc(i){
+  var sh=$('sheet');
+  [].forEach.call(sh.querySelectorAll('.icb'),function(b){b.onclick=function(){
+    if(cmd('op=name&r='+i+'&n='+encodeURIComponent((($('nmi')||{}).value||'').trim())+'&ic='+b.dataset.ic)){[].forEach.call(sh.querySelectorAll('.icb'),function(x){x.classList.toggle('on',x===b)})}
+  }});
+}
+
+/* ---- colours (kept on this phone) ---- */
+var PAL=['255,159,10','52,199,89','10,132,255','191,90,242','255,55,95','20,184,166','255,122,69','234,179,8'];
+var COL=ld('bagh_colors',null);if(!COL||COL.length!==8)COL=PAL.slice();
+function colOf(i){return COL[i]||PAL[i%8]}
+function rgb2hex(c){return '#'+c.split(',').map(function(x){return ('0'+(+x).toString(16)).slice(-2)}).join('')}
+function hex2rgb(h){return [1,3,5].map(function(k){return parseInt(h.substr(k,2),16)}).join(',')}
+function swHtml(i){return PAL.map(function(c){return '<button class="sw'+(colOf(i)===c?' on':'')+'" data-c="'+c+'" style="background:rgb('+c+')" aria-label="رنگ"></button>'}).join('')+'<input type="color" id="swc" value="'+rgb2hex(colOf(i))+'" style="width:46px;height:34px;padding:0;border-radius:10px;direction:ltr">'}
+function bindSw(i){
+  var sh=$('sheet');
+  [].forEach.call(sh.querySelectorAll('.sw'),function(b){b.onclick=function(){COL[i]=b.dataset.c;sv('bagh_colors',COL);render();[].forEach.call(sh.querySelectorAll('.sw'),function(x){x.classList.toggle('on',x===b)});$('swc').value=rgb2hex(COL[i])}});
+  $('swc').oninput=function(){COL[i]=hex2rgb(this.value);sv('bagh_colors',COL);render();[].forEach.call(sh.querySelectorAll('.sw'),function(x){x.classList.remove('on')})};
+}
+
+/* ---- group selection ---- */
+var selMode=false,selMask=0,RF=0;
+function selCount(){var n=0;for(var i=0;i<8;i++)if((selMask>>i)&1)n++;return n}
+function gbarUI(){
+  $('gsel').textContent=selMode?'خروج از انتخاب گروهی':'انتخاب گروهی';
+  var b=$('gbar');b.hidden=!selMode;
+  if(!selMode)return;
+  b.innerHTML='<div class="hint" style="flex:1 1 100%;margin:0">'+f(selCount())+' چراغ انتخاب شده؛ روی کارت چراغ‌ها بزنید.</div><button class="btn p c1" id="g_on">روشن</button><button class="btn c2" id="g_off">خاموش</button><button class="btn c3" id="g_all">انتخاب همه</button><button class="btn c5" id="g_cfg">تایمر و زمان‌بندی گروهی</button>';
+  $('g_all').onclick=function(){selMask=0;for(var i=0;i<8;i++)if(RES.indexOf(i)<0)selMask|=1<<i;render();gbarUI()};
+  $('g_on').onclick=function(){grpSet(true)};$('g_off').onclick=function(){grpSet(false)};
+  $('g_cfg').onclick=function(){if(!selCount()){msg('ابتدا چراغ‌ها را انتخاب کنید',true);return}openGroup(selMask)};
+}
+function grpSet(v){if(!selCount()||!ok())return;for(var i=0;i<8;i++)if(((selMask>>i)&1)&&RES.indexOf(i)<0)pub('home/lights/'+(i+1)+'/set',(v?'ON':'OFF')+tagMe())}
+function bindSlots(sh,mask){
+  [].forEach.call(sh.querySelectorAll('.slot'),function(s){
+    [].forEach.call(s.querySelectorAll('.chip'),function(c){c.onclick=function(){c.classList.toggle('on')}});
+    ['on','off'].forEach(function(p){s.querySelector('.'+p+'m').onchange=function(){var m=this.value==='1';s.querySelector('.'+p+'t').hidden=m;s.querySelector('.'+p+'o').hidden=!m}});
+    s.querySelector('.sv').onclick=function(){
+      var days=0;[].forEach.call(s.querySelectorAll('.chip.on'),function(c){days|=1<<(+c.dataset.b)});
+      function side(p){var m=+s.querySelector('.'+p+'m').value,v=m?(+s.querySelector('.'+p+'o').value||0):(function(t){var a=t.split(':');return (+a[0])*60+(+a[1])})(s.querySelector('.'+p+'t').value||'00:00');return [m,v]}
+      var a=side('on'),b=side('off'),en=s.querySelector('.en').checked?1:0;
+      if(en&&!days){msg('حداقل یک روز را انتخاب کنید',true);return}
+      if(cmd('op=sch&m='+mask+'&sk='+s.dataset.k+'&en='+en+'&days='+days+'&onm='+a[0]+'&on='+a[1]+'&offm='+b[0]+'&off='+b[1]))msg('برنامه ذخیره شد',false);
+    };
+  });
+}
+function openGroup(mask){
+  openI=-1;$('ov').hidden=false;
+  var sh=$('sheet'),names=[];for(var i=0;i<8;i++)if((mask>>i)&1)names.push(esc(nm(i)));
+  sh.innerHTML='<div class="sh-h"><b>تنظیم گروهی</b><button class="btn c4" id="xs" style="height:38px">✕</button></div><div class="hint" style="margin-top:0">'+names.join('، ')+'</div>'
+   +'<label>تایمر</label><div class="chips">'+[15,30,60,120,240].map(function(m){return '<button class="chip tm" data-m="'+m+'">'+fm(m)+'</button>'}).join('')+'<button class="chip tm" data-m="0">لغو تایمر</button></div>'
+   +'<label>خاموشی خودکار (هر بار که روشن شود)</label><div class="row"><select id="mxs">'+opts([0,30,60,120,240,480,720,1440],0,function(v){return v?fm(v):'غیرفعال'})+'</select><button class="btn p c5" id="mxb" style="flex:none">ذخیره</button></div>'
+   +'<label>زمان‌بندی هفتگی برای همه‌ی چراغ‌های انتخابی</label>'+[0,1,2].map(function(k){return slotHtml(-1,k)}).join('')
+   +'<div class="hint">با ذخیره، برنامه روی همه‌ی چراغ‌های انتخابی جایگزین می‌شود.</div>';
+  $('xs').onclick=closeSheet;
+  $('mxb').onclick=function(){if(cmd('op=max&m='+mask+'&min='+$('mxs').value))msg('ارسال شد',false)};
+  [].forEach.call(sh.querySelectorAll('.tm'),function(b){b.onclick=function(){if(cmd('op=timer&m='+mask+'&min='+b.dataset.m))msg(b.dataset.m==='0'?'تایمر لغو شد':'تایمر تنظیم شد',false)}});
+  bindSlots(sh,mask);
+}
+
+/* ---- alarm: who / when, history, settings ---- */
+function fullT(t){if(!(t>0))return '—';var d=new Date(t*1000);try{return d.toLocaleDateString('fa-IR',{timeZone:'UTC',year:'numeric',month:'2-digit',day:'2-digit'})+' ساعت '+f(p2(d.getUTCHours())+':'+p2(d.getUTCMinutes()))}catch(x){return lgTime(t)}}
+function byTxt(s,w){
+  if(s===0){if(w===0)return 'پنل (مالک)';if(w>=200)return 'ریموت: '+(D.rn[w-200]||'؟');return 'مهمان '+f(w)}
+  if(w>=200)return 'ریموت: '+(D.rn[w-200]||'؟');
+  return SN[s]||'';
+}
+function setInfo(r){var a=String(r).split(',').map(Number);if(a.length<6||a.some(isNaN))return;INF={armed:a[0],dis:a[1],mot:a[2],fmot:a[3],n:a[4],ever:a[5],as:a[6]||0,aw:a[7]||0,ds:a[8]||0,dw:a[9]||0};infoUI();if(tab==='A')renderA()}
+function infoUI(){
+  var e=$('alI');if(!e)return;
+  if(!INF){e.innerHTML='';return}
+  var h='';
+  if(AL&&AL!=='DISARMED'&&INF.armed>0)h+='🛡 مسلح شد: '+fullT(INF.armed)+' · توسط '+esc(byTxt(INF.as,INF.aw));
+  else if(INF.dis>0)h+='🔓 آخرین غیرفعال شدن: '+fullT(INF.dis)+' · توسط '+esc(byTxt(INF.ds,INF.dw));
+  if(INF.n>0)h+='<br>👁 اولین حرکت: '+fullT(INF.fmot)+(INF.n>1?' · آخرین: '+fullT(INF.mot):'')+' · '+f(INF.n)+' بار';
+  h+='<br><button class="lk" id="alMore">جزئیات، تنظیمات و تاریخچه ›</button>';
+  e.innerHTML=h;$('alMore').onclick=function(){setTab('A')};
+}
+function infLine(a,b){return '<div class="inf"><span>'+a+'</span><b>'+b+'</b></div>'}
+function renderA(){
+  var p=$('pA'),I=INF,h='';
+  var st={DISARMED:'خاموش',ARMING:'در حال مسلح شدن',ARMED:'مسلح',ENTRY:'حرکت تشخیص داده شد',ALARM:'هشدار! آژیر روشن است'}[AL]||'؟';
+  h+='<div class="box"><h2>وضعیت و ثبت رویدادها</h2>'+infLine('وضعیت فعلی',st)
+   +infLine('اولین بار که دزدگیر فعال شد',I&&I.ever>0?fullT(I.ever):'—')
+   +infLine('آخرین مسلح شدن',I&&I.armed>0?fullT(I.armed)+' · '+esc(byTxt(I.as,I.aw)):'—')
+   +infLine('آخرین غیرفعال شدن',I&&I.dis>0?fullT(I.dis)+' · '+esc(byTxt(I.ds,I.dw)):'—')
+   +infLine('اولین حرکت بعد از مسلح شدن',I&&I.fmot>0?fullT(I.fmot):(I&&I.n>0?'زمان نامشخص':'—'))
+   +infLine('آخرین حرکت',I&&I.mot>0?fullT(I.mot)+' · '+f(I.n)+' بار':(I&&I.n>0?f(I.n)+' بار':'—'))+'</div>';
+  var ev=(D.log||[]).filter(function(e){return e[1]===8}).slice(0,12);
+  h+='<div class="box"><h2>تاریخچه‌ی دزدگیر</h2>';
+  ev.forEach(function(e){h+='<div class="lg"><i class="'+(e[2]===1?'on':'')+'"></i><span>'+(['غیرفعال شد','مسلح شد','حرکت دیده شد'][e[2]]||'')+'</span><small>'+esc(byTxt(e[3],e[4]))+' · '+fullT(e[0])+'</small></div>'});
+  if(!ev.length)h+='<div class="hint">رویدادی در فهرست اخیر نیست (فهرست با خاموش شدن ماژول پاک می‌شود، ولی «آخرین»‌های بالا می‌مانند).</div>';
+  h+='</div>';
+  var A=D.al;
+  if(!A)h+='<div class="box">در حال دریافت تنظیمات دزدگیر از ماژول…</div>';
+  else{
+    var dy=DAYS.map(function(d){return '<button class="chip'+((A.days>>d[1])&1?' on':'')+'" data-b="'+d[1]+'">'+d[0]+'</button>'}).join('');
+    var lm=[0,1,2,3,4,5,6,7].filter(function(i){return RES.indexOf(i)<0}).map(function(i){return '<button class="chip'+((A.lights>>i)&1?' on':'')+'" data-i="'+i+'">'+esc(nm(i))+'</button>'}).join('');
+    h+='<div class="box"><h2>زمان‌بندی خودکار دزدگیر</h2><div class="row"><div style="flex:3;font-size:13px">فعال</div><span style="flex:none"><input type="checkbox" id="as"'+(A.sch?' checked':'')+'></span></div>'
+     +'<label>مسلح شدن در ساعت</label><input id="aa" type="time" value="'+hm(A.arm)+'">'
+     +'<label>غیرفعال شدن در ساعت</label><input id="ae" type="time" value="'+hm(A.dis)+'">'
+     +'<label>روزهای مسلح شدن</label><div class="chips" id="ad">'+dy+'</div>'
+     +'<div class="row" style="margin-top:12px"><div style="flex:3;font-size:13px">هم‌زمان با حالت سفر روشن و خاموش شود</div><span style="flex:none"><input type="checkbox" id="av"'+(A.vac?' checked':'')+'></span></div>'
+     +'<label>چراغ‌هایی که هنگام هشدار روشن شوند</label><div class="chips" id="al2">'+lm+'</div>'
+     +'<div class="hint">با غیرفعال کردن دزدگیر، همین چراغ‌ها خاموش می‌شوند. غیرفعال شدن هر روز در ساعت تعیین‌شده انجام می‌شود.</div>'
+     +'<button class="btn p c3" id="asv" style="width:100%;margin-top:12px">ذخیره</button></div>';
+  }
+  p.innerHTML=h;
+  if(A){
+    [].forEach.call(p.querySelectorAll('#ad .chip,#al2 .chip'),function(c){c.onclick=function(){c.classList.toggle('on')}});
+    $('asv').onclick=function(){
+      var d=0,l=0;[].forEach.call(p.querySelectorAll('#ad .chip.on'),function(c){d|=1<<(+c.dataset.b)});[].forEach.call(p.querySelectorAll('#al2 .chip.on'),function(c){l|=1<<(+c.dataset.i)});
+      function pm(v){var a=(v||'').split(':');return a.length<2?-1:(+a[0])*60+(+a[1])}
+      var s=$('as').checked?1:0,a=pm($('aa').value),e=pm($('ae').value);
+      if(s&&(a<0||e<0||a===e)){msg('ساعت‌ها را درست وارد کنید (ساعت روشن و خاموش نباید یکی باشد)',true);return}
+      if(s&&!d){msg('حداقل یک روز را برای مسلح شدن انتخاب کنید',true);return}
+      if(cmd('op=alcfg&sch='+s+'&arm='+(a<0?0:a)+'&dis='+(e<0?0:e)+'&days='+d+'&vac='+($('av').checked?1:0)+'&lights='+l))msg('تنظیمات دزدگیر ذخیره شد',false);
+    };
+  }
+}
+
+/* ---- settings tab: general settings, guests, restart ---- */
+function pmin(v){var a=(v||'').split(':');return a.length<2?-1:(+a[0])*60+(+a[1])}
+function renderS(){
+  var p=$('pS'),gs=D.gs,h='<div class="box"><h2>مهمان‌ها</h2>',RM=(1<<RES[0])|(1<<RES[1]);
+  if(!gs)h+='<div class="hint">در حال دریافت…</div>';
+  else if(!gs.length)h+='<div class="hint">مهمانی تعریف نشده است.</div>';
+  else gs.forEach(function(g){
+    var lm=[0,1,2,3,4,5,6,7].filter(function(i){return RES.indexOf(i)<0}).map(function(i){return '<button class="chip'+((g[2]>>i)&1?' on':'')+'" data-i="'+i+'">'+esc(nm(i))+'</button>'}).join('');
+    var ap=g[8]|0;
+    h+='<div class="gcard" data-g="'+g[0]+'"><div class="row"><input class="gnm" value="'+esc(g[1])+'" maxlength="19"><span style="flex:none"><input type="checkbox" class="gen"'+(g[3]?' checked':'')+'></span></div>'
+     +'<label>مجاز از ساعت تا ساعت</label><div class="row"><input class="gfr" type="time" value="'+hm(g[4])+'"><input class="gun" type="time" value="'+hm(Math.min(g[5],1439))+'"></div>'
+     +'<label>چراغ‌های مجاز</label><div class="chips gl">'+lm+'</div>'
+     +'<label>دسترسی به دزدگیر</label><select class="gap"><option value="0"'+(ap===0?' selected':'')+'>ندارد</option><option value="1"'+(ap===1?' selected':'')+'>فقط خاموش کردن</option><option value="2"'+(ap===2?' selected':'')+'>روشن و خاموش کردن</option></select>'
+     +'<button class="btn p c3 gsv2" style="width:100%;margin-top:10px">ذخیره‌ی این مهمان</button></div>';
+  });
+  h+='<div class="hint">افزودن و حذف مهمان، تغییر رمز و تنظیمات عمومی ماژول فقط از پنل خود ماژول انجام می‌شود.</div></div>';
+  p.innerHTML=h;
+  [].forEach.call(p.querySelectorAll('.gcard'),function(c){
+    var g=+c.dataset.g,orig=(gs||[]).filter(function(x){return x[0]===g})[0]||[];
+    [].forEach.call(c.querySelectorAll('.gl .chip'),function(b){b.onclick=function(){b.classList.toggle('on')}});
+    c.querySelector('.gsv2').onclick=function(){
+      var m=(orig[2]||0)&RM;[].forEach.call(c.querySelectorAll('.gl .chip.on'),function(b){m|=1<<(+b.dataset.i)});
+      var nmv=c.querySelector('.gnm').value.trim(),fr=pmin(c.querySelector('.gfr').value),un=pmin(c.querySelector('.gun').value);
+      if(un===1439)un=1440;
+      if(!nmv||fr<0||un<1||un<=fr){msg('نام و ساعت‌ها را درست وارد کنید (پایان باید بعد از شروع باشد)',true);return}
+      if(cmd('op=guest&g='+g+'&n='+encodeURIComponent(nmv)+'&en='+(c.querySelector('.gen').checked?1:0)+'&mask='+m+'&from='+fr+'&until='+un+'&ap='+c.querySelector('.gap').value))msg('مهمان ذخیره شد',false);
+    };
+  });
+}
+
+/* ---- tabs / wiring ---- */
+function setTab(t){
+  tab=t;[].forEach.call($('tabs').children,function(b){b.classList.toggle('on',b.dataset.t===t)});
+  $('pL').hidden=t!=='L';$('pV').hidden=t!=='V';$('pR').hidden=t!=='R';$('pA').hidden=t!=='A';$('pS').hidden=t!=='S';
+  if(t==='V'){renderV();if(!D.main||!D.al)cmd('op=get')}
+  if(t==='R'){renderR();cmd('op=rep')}
+  if(t==='A'){renderA();if(!D.al)cmd('op=get');if(!D.log||Date.now()-(D.logAt||0)>60000)cmd('op=rep')}
+  if(t==='S'){renderS();if(!D.gs)cmd('op=get')}
+}
+[].forEach.call($('tabs').children,function(b){b.onclick=function(){setTab(b.dataset.t)}});
+$('go').onclick=open;$('stop').onclick=closeC;
+$('vtog').onclick=vtogClick;
+$('gsel').onclick=function(){selMode=!selMode;if(!selMode)selMask=0;render();gbarUI()};
+$('allon').onclick=function(){setAll(true)};$('alloff').onclick=function(){setAll(false)};
+$('tg').onclick=function(){$('cfg').hidden=!$('cfg').hidden};
+setInterval(function(){if(connected&&tab==='L'&&D.main)tickSubs()},1000);
+setInterval(function(){if(connected&&!document.hidden&&dev==='online')pub('home/cfg/cmd','op=main')},30000);
+var c=ld('bagh_cfg',null);
+if(c){$('host').value=c.host;$('port').value=c.port;$('user').value=c.user;$('pass').value=c.pass;$('me').value=c.me||'';if(c.me)open()}
+render();gbarUI();vtogUI();status();alUI();
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&want&&!connected){gap=2000;open()}});
+})();
+</script>
+</body>
+</html>
