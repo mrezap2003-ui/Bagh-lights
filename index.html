@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b1210">
 <meta http-equiv="Cache-Control" content="no-store">
-<title>چراغ‌های باغ - از راه دور (دزدگیر v5)</title>
+<title>چراغ‌های باغ - از راه دور (دزدگیر v8)</title>
 <style>
 :root{--bg:#0a1311;--tx:#f2f7f3;--mut:#b2c4b9;--ok:#57d38c;--bad:#ff6b6b;--glass:rgba(18,32,27,.50);--gb:rgba(255,255,255,.17)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -84,12 +84,20 @@ html.th-bad body::after{background:rgba(235,25,35,.52);animation:thp 1s ease-in-
 .gbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.gbar .btn{flex:1 1 90px}
 .inf{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:7px 0;border-top:1px solid var(--gb)}.inf span{color:var(--mut)}.inf b{text-align:left;font-weight:700}
 #toast{position:fixed;inset-inline:14px;bottom:calc(18px + env(safe-area-inset-bottom));max-width:520px;margin:0 auto;padding:12px 16px;border-radius:14px;background:rgba(10,20,16,.93);border:1px solid var(--gb);z-index:20;font-size:13px;text-align:center}#toast.e{border-color:var(--bad);color:#ffc9c9}
+#alc.s-armed,#alc.s-arming{background:linear-gradient(160deg,rgba(40,190,110,.38),rgba(15,110,60,.5));border-color:rgba(87,211,140,.95)}
+.tabs button.g{background:linear-gradient(135deg,rgba(40,190,110,.6),rgba(20,150,80,1))!important;color:#fff}
+.tabs button.r{background:linear-gradient(135deg,rgba(255,95,110,.6),rgba(235,50,70,1))!important;color:#fff}
+#pA.green .box{border-color:rgba(87,211,140,.85);background:rgba(20,110,60,.32)}
+#pA.red .box{border-color:rgba(255,107,107,.95);background:rgba(120,15,25,.32)}
+.btn.vt{background:linear-gradient(135deg,rgba(170,110,255,.5),rgba(130,70,255,1))}.btn.vt.on{background:linear-gradient(135deg,rgba(255,176,70,.6),rgba(255,120,30,1))}
+a.btn{display:flex;align-items:center;justify-content:center;text-decoration:none;text-align:center;line-height:1.5}
 [hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<header><h1>باغ <small style="font-size:11px;color:var(--ok);font-weight:700">نسخه‌ی دزدگیر ✓ ۵</small></h1><div class="st"><span id="sc"><i></i><b>قطع</b></span><span id="sd"><i></i><b>ماژول؟</b></span></div></header>
+<header><h1>باغ <small style="font-size:11px;color:var(--ok);font-weight:700">نسخه‌ی دزدگیر ✓ ۸</small></h1><div class="st"><span id="sc"><i></i><b>قطع</b></span><span id="sd"><i></i><b>ماژول؟</b></span></div></header>
+<div class="box" id="lcl" style="padding:12px"><a class="btn c5" href="http://192.168.4.1" rel="noopener" style="width:100%;height:48px">ورود محلی: باز کردن مستقیم پنل ماژول (192.168.4.1)</a><div class="hint" style="margin:8px 0 0;text-align:center">گوشی باید به وای‌فای «bagh» ماژول وصل باشد. بدون اینترنت هم کار می‌کند.</div></div>
 <div class="box al" id="alc"><div class="row"><div style="flex:1.7"><div class="alt" id="alT">دزدگیر: ؟</div><div class="hint" id="alS" style="margin:4px 0 0"></div><div class="hint" id="alP" style="margin:6px 0 0;font-weight:700"></div><div class="hint" id="alI" style="margin:6px 0 0"></div></div><button class="btn c3" id="alB" disabled>؟</button></div></div>
 
 <div class="box" id="cfg">
@@ -107,7 +115,7 @@ html.th-bad body::after{background:rgba(235,25,35,.52);animation:thp 1s ease-in-
 
 <div id="main" hidden>
   <div class="tabs" id="tabs"><button data-t="L" class="on">چراغ‌ها</button><button data-t="V">حالت سفر</button><button data-t="R">گزارش</button><button data-t="A">دزدگیر</button><button data-t="S">تنظیمات</button></div>
-  <div id="pL"><div class="all"><button class="btn p c1" id="allon">روشن همه</button><button class="btn c2" id="alloff">خاموش همه</button></div><div class="all"><button class="btn c5" id="gsel">انتخاب گروهی</button></div><div class="grid" id="grid"></div><div class="gbar" id="gbar" hidden></div>
+  <div id="pL"><div class="all"><button class="btn p c1" id="allon">روشن همه</button><button class="btn c2" id="alloff">خاموش همه</button></div><div class="all"><button class="btn c5" id="gsel">انتخاب گروهی</button><button class="btn vt" id="vtog">حالت سفر</button></div><div class="grid" id="grid"></div><div class="gbar" id="gbar" hidden></div>
     <div class="hint">برای تغییر نام، رنگ، تایمر، خاموشی خودکار و زمان‌بندی هر چراغ، دکمه‌ی ⚙ روی همان کارت را بزنید. برای تنظیم چند چراغ با هم، «انتخاب گروهی» را بزنید.</div></div>
   <div id="pV" hidden></div>
   <div id="pR" hidden></div>
@@ -150,6 +158,7 @@ function msg(t,err){var m=$('msg');m.textContent=t;m.className=err?'e':'';if(con
 function badge(id,cls,txt){var e=$(id);e.className=cls;e.querySelector('b').textContent=txt}
 function status(){
   var c=ws&&ws.readyState===1&&connected;
+  var lc=$('lcl');if(lc)lc.hidden=!!c;   // the local-entry button is only needed while not connected
   badge('sc',c?'ok':(want?'':'bad'),c?'متصل':(want?'در حال اتصال':'قطع'));
   badge('sd',dev==='online'?'ok':(dev==='offline'?'bad':''),dev==='online'?'ماژول آنلاین':(dev==='offline'?'ماژول آفلاین':'ماژول؟'));
 }
@@ -158,7 +167,7 @@ function ok(){
   if(dev==='offline'){msg('ماژول آفلاین است؛ برق و اینترنت ماژول را بررسی کنید',true);return false}
   return true;
 }
-var TOP=['names','sch','main','stats','log','alarm','gen','guests'];
+var TOP=['names','sch','main','stats','log','alarm','guests'];
 function handle(type,flags,body){
   if(type===2){
     if(body[1]===0){
@@ -166,6 +175,7 @@ function handle(type,flags,body){
       var s=[0,1].concat(str('home/lights/+/state'),[0],str('home/device/status'),[0],str('home/alarm/state'),[0],str('home/alarm/pir'),[0],str('home/alarm/fw'),[0],str('home/alarm/info'),[0]);
       TOP.forEach(function(t){s=s.concat(str('home/cfg/'+t),[0])});
       send(pkt(0x82,s));
+      setTimeout(function(){if(connected)cmd('op=get')},1500);
       clearInterval(pingT);pingT=setInterval(function(){send(new Uint8Array([0xC0,0]))},20000);
       $('cfg').hidden=true;$('tg').hidden=false;$('main').hidden=false;status();render();
     }else{
@@ -188,11 +198,10 @@ function handle(type,flags,body){
       var k=topic.slice(9);
       if(k==='names'){D.n=j.n;D.ic=j.ic;D.mx=j.mx;D.rn=j.rn||[];render();if(openI>=0)openSheet(openI,true)}
       else if(k==='sch'){D.sch=j.sch;if(openI>=0)openSheet(openI,true)}
-      else if(k==='main'){D.main=j;D.mainAt=Date.now();render();if(tab==='V')renderV()}
+      else if(k==='main'){D.main=j;D.mainAt=Date.now();render();vtogUI();if(tab==='V')renderV()}
       else if(k==='stats'){D.stats=j.m;if(tab==='R')renderR()}
-      else if(k==='log'){D.log=j.l;if(tab==='R')renderR();if(tab==='A')renderA()}
+      else if(k==='log'){D.log=j.l;D.logAt=Date.now();if(tab==='R')renderR();if(tab==='A')renderA()}
       else if(k==='alarm'){D.al=j;if(tab==='A')renderA();if(tab==='V')renderV()}
-      else if(k==='gen'){D.gen=j;if(tab==='S')renderS()}
       else if(k==='guests'){D.gs=j.g;if(tab==='S')renderS()}
     }
   }
@@ -251,7 +260,10 @@ function alUI(note){
   else{txt='دزدگیر: ؟';sub=connected?'وضعیت دزدگیر از ماژول دریافت نشده است. برنامه‌ی جدید ماژول را آپلود کرده‌اید؟':'ابتدا به سرور وصل شوید (پایین‌تر، «اتصال»)';bt='؟';cls='btn c3';dis=true}
   if(dev==='offline')sub='ماژول آفلاین است؛ وضعیت بالا ممکن است قدیمی باشد. '+sub;
   if(note)sub=note;
-  T.textContent=txt;S.textContent=sub;pirUI();infoUI();B.textContent=bt;B.className=cls;B.disabled=dis;c.className='box al'+sc;
+  T.textContent=txt;S.textContent=sub;pirUI();infoUI();
+  var tb=document.querySelector('.tabs button[data-t="A"]'),isG=(AL==='ARMING'||AL==='ARMED')&&!theft,isR=!!theft||AL==='ALARM'||AL==='ENTRY',pa=$('pA');
+  if(tb){tb.classList.toggle('g',isG);tb.classList.toggle('r',isR)}
+  if(pa){pa.classList.toggle('green',isG);pa.classList.toggle('red',isR)}B.textContent=bt;B.className=cls;B.disabled=dis;c.className='box al'+sc;
 }
 function setAlarm(v){
   var prev=AL;AL=v;clearTimeout(alPend);alPend=0;
@@ -395,6 +407,10 @@ function renderR(){
 }
 
 
+/* ---- travel mode: quick on/off button (settings stay in the travel tab) ---- */
+function vtogUI(){var b=$('vtog');if(!b)return;var M=D.main;if(!M){b.textContent='حالت سفر';b.classList.remove('on');return}var on=!!M.v[0];b.textContent='حالت سفر: '+(on?'روشن':'خاموش');b.classList.toggle('on',on)}
+function vtogClick(){var M=D.main;if(!M){msg('در حال دریافت از ماژول…',true);cmd('op=get');return}var on=!!M.v[0];if(cmd('op=vacon&on='+(on?0:1)))msg(on?'حالت سفر خاموش شد':'حالت سفر روشن شد',false)}
+
 /* ---- light icons ---- */
 var IK=['bulb','lamp','tree','home','star','wave','car','door','fence','fountain','sun','moon'];
 var IP={bulb:'<path d="M9 21h6M10 18h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',lamp:'<path d="M8 3h8l2 6H6zM12 9v12M8 21h8"/>',tree:'<path d="M12 22v-6M12 3l5 7h-3l4 6H6l4-6H7z"/>',home:'<path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/>',star:'<path d="M12 2l3 6.6 7 .8-5.2 4.8 1.4 7-6.2-3.4-6.2 3.4 1.4-7L2 9.4l7-.8z"/>',wave:'<path d="M2 8c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 14c2-2 4-2 6 0s4 2 6 0 4-2 6 0M2 20c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>',car:'<path d="M3 17v-4l2-5h14l2 5v4M3 17h18M3 17v2M21 17v2M7 13h.01M17 13h.01"/>',door:'<path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17M4 21h16M14 12h.01"/>',fence:'<path d="M5 21V8l2-3 2 3v13M11 21V8l2-3 2 3v13M17 21V8l2-3 2 3v13M3 14h18"/>',fountain:'<path d="M12 21v-8M8 21h8M12 13c-4 0-6-3-6-7M12 13c4 0 6-3 6-7M12 10c-1.5-2-1.5-4 0-6 1.5 2 1.5 4 0 6z"/>',sun:'<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>',moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>'};
@@ -488,13 +504,13 @@ function renderA(){
    +infLine('آخرین مسلح شدن',I&&I.armed>0?fullT(I.armed)+' · '+esc(byTxt(I.as,I.aw)):'—')
    +infLine('آخرین غیرفعال شدن',I&&I.dis>0?fullT(I.dis)+' · '+esc(byTxt(I.ds,I.dw)):'—')
    +infLine('اولین حرکت بعد از مسلح شدن',I&&I.fmot>0?fullT(I.fmot):(I&&I.n>0?'زمان نامشخص':'—'))
-   +infLine('آخرین حرکت',I&&I.mot>0?fullT(I.mot)+' · '+f(I.n)+' بار':(I&&I.n>0?f(I.n)+' بار':'—'))+'<button class="btn c2" id="atest" style="width:100%;margin-top:10px">تست آژیر (۲ ثانیه)</button></div>';
+   +infLine('آخرین حرکت',I&&I.mot>0?fullT(I.mot)+' · '+f(I.n)+' بار':(I&&I.n>0?f(I.n)+' بار':'—'))+'</div>';
   var ev=(D.log||[]).filter(function(e){return e[1]===8}).slice(0,12);
   h+='<div class="box"><h2>تاریخچه‌ی دزدگیر</h2>';
   ev.forEach(function(e){h+='<div class="lg"><i class="'+(e[2]===1?'on':'')+'"></i><span>'+(['غیرفعال شد','مسلح شد','حرکت دیده شد'][e[2]]||'')+'</span><small>'+esc(byTxt(e[3],e[4]))+' · '+fullT(e[0])+'</small></div>'});
   if(!ev.length)h+='<div class="hint">رویدادی در فهرست اخیر نیست (فهرست با خاموش شدن ماژول پاک می‌شود، ولی «آخرین»‌های بالا می‌مانند).</div>';
   h+='</div>';
-  var A=D.al,G=null;
+  var A=D.al;
   if(!A)h+='<div class="box">در حال دریافت تنظیمات دزدگیر از ماژول…</div>';
   else{
     var dy=DAYS.map(function(d){return '<button class="chip'+((A.days>>d[1])&1?' on':'')+'" data-b="'+d[1]+'">'+d[0]+'</button>'}).join('');
@@ -508,18 +524,7 @@ function renderA(){
      +'<div class="hint">با غیرفعال کردن دزدگیر، همین چراغ‌ها خاموش می‌شوند. غیرفعال شدن هر روز در ساعت تعیین‌شده انجام می‌شود.</div>'
      +'<button class="btn p c3" id="asv" style="width:100%;margin-top:12px">ذخیره</button></div>';
   }
-  if(G){
-    h+='<div class="box"><h2>تنظیمات عمومی ماژول</h2>'
-     +'<label>سطح اعلان بله</label><select id="gn"><option value="0">خاموش</option><option value="1">فقط هشدارها</option><option value="2">همه‌ی رویدادها</option></select>'
-     +'<label>بعد از قطع برق</label><select id="gr"><option value="0">همه خاموش</option><option value="1">بازگردانی وضعیت قبلی</option></select>'
-     +'<div class="row" style="margin-top:12px"><div style="flex:3;font-size:13px">کنترل چراغ‌ها با ربات'+(G.tg?'':' (توکن ثبت نشده)')+'</div><span style="flex:none"><input type="checkbox" id="gb"'+(G.bot?' checked':'')+'></span></div>'
-     +'<label>منطقه‌ی زمانی (دقیقه از UTC؛ ایران ۲۱۰)</label><input id="gz" type="number" value="'+G.tz+'">'
-     +'<label>عرض و طول جغرافیایی (برای غروب و طلوع)</label><div class="row"><input id="gla" type="number" step="0.01" value="'+G.lat+'"><input id="glo" type="number" step="0.01" value="'+G.lon+'"></div>'
-     +'<button class="btn p c5" id="gsv" style="width:100%;margin-top:12px">ذخیره</button>'
-     +'<div class="hint">رمزها، توکن ربات، وای‌فای و مهمان‌ها برای امنیت از راه دور تغییر نمی‌کنند؛ آن‌ها را از پنل خود ماژول (داخل شبکه) تغییر دهید.</div></div>';
-  }
   p.innerHTML=h;
-  $('atest').onclick=function(){if(ok()&&confirm('آژیر ۲ ثانیه صدا می‌دهد؛ ادامه می‌دهید؟'))pub('home/alarm/set','TEST'+tagMe())};
   if(A){
     [].forEach.call(p.querySelectorAll('#ad .chip,#al2 .chip'),function(c){c.onclick=function(){c.classList.toggle('on')}});
     $('asv').onclick=function(){
@@ -531,30 +536,12 @@ function renderA(){
       if(cmd('op=alcfg&sch='+s+'&arm='+(a<0?0:a)+'&dis='+(e<0?0:e)+'&days='+d+'&vac='+($('av').checked?1:0)+'&lights='+l))msg('تنظیمات دزدگیر ذخیره شد',false);
     };
   }
-  if(G){
-    $('gn').value=G.notify;$('gr').value=G.restore;
-    $('gsv').onclick=function(){
-      var z=+$('gz').value,la=+$('gla').value,lo=+$('glo').value;
-      if(isNaN(z)||z<-720||z>840||isNaN(la)||la<-90||la>90||isNaN(lo)||lo<-180||lo>180){msg('مقدارها را درست وارد کنید',true);return}
-      if(cmd('op=set&notify='+$('gn').value+'&restore='+$('gr').value+'&bot='+($('gb').checked?1:0)+'&tz='+z+'&lat='+la+'&lon='+lo))msg('تنظیمات ذخیره شد',false);
-    };
-  }
 }
 
 /* ---- settings tab: general settings, guests, restart ---- */
 function pmin(v){var a=(v||'').split(':');return a.length<2?-1:(+a[0])*60+(+a[1])}
 function renderS(){
-  var p=$('pS'),G=D.gen,gs=D.gs,h='',RM=(1<<RES[0])|(1<<RES[1]);
-  if(G){
-    h+='<div class="box"><h2>تنظیمات عمومی ماژول</h2>'
-     +'<label>سطح اعلان بله</label><select id="gn"><option value="0">خاموش</option><option value="1">فقط هشدارها</option><option value="2">همه‌ی رویدادها</option></select>'
-     +'<label>بعد از قطع برق</label><select id="gr"><option value="0">همه خاموش</option><option value="1">بازگردانی وضعیت قبلی</option></select>'
-     +'<div class="row" style="margin-top:12px"><div style="flex:3;font-size:13px">کنترل چراغ‌ها با ربات'+(G.tg?'':' (توکن ثبت نشده)')+'</div><span style="flex:none"><input type="checkbox" id="gb"'+(G.bot?' checked':'')+'></span></div>'
-     +'<label>منطقه‌ی زمانی (دقیقه از UTC؛ ایران ۲۱۰)</label><input id="gz" type="number" value="'+G.tz+'">'
-     +'<label>عرض و طول جغرافیایی (برای غروب و طلوع)</label><div class="row"><input id="gla" type="number" step="0.01" value="'+G.lat+'"><input id="glo" type="number" step="0.01" value="'+G.lon+'"></div>'
-     +'<button class="btn p c5" id="gsv" style="width:100%;margin-top:12px">ذخیره</button></div>';
-  }else h+='<div class="box">در حال دریافت تنظیمات از ماژول…</div>';
-  h+='<div class="box"><h2>مهمان‌ها</h2>';
+  var p=$('pS'),gs=D.gs,h='<div class="box"><h2>مهمان‌ها</h2>',RM=(1<<RES[0])|(1<<RES[1]);
   if(!gs)h+='<div class="hint">در حال دریافت…</div>';
   else if(!gs.length)h+='<div class="hint">مهمانی تعریف نشده است.</div>';
   else gs.forEach(function(g){
@@ -566,17 +553,8 @@ function renderS(){
      +'<label>دسترسی به دزدگیر</label><select class="gap"><option value="0"'+(ap===0?' selected':'')+'>ندارد</option><option value="1"'+(ap===1?' selected':'')+'>فقط خاموش کردن</option><option value="2"'+(ap===2?' selected':'')+'>روشن و خاموش کردن</option></select>'
      +'<button class="btn p c3 gsv2" style="width:100%;margin-top:10px">ذخیره‌ی این مهمان</button></div>';
   });
-  h+='<div class="hint">افزودن و حذف مهمان و تغییر رمز فقط از پنل خود ماژول (داخل شبکه) ممکن است.</div></div>';
-  h+='<div class="box"><h2>سیستم</h2><button class="btn c4" id="rst" style="width:100%">راه‌اندازی مجدد ماژول</button><div class="hint">ماژول چند ثانیه قطع می‌شود و دوباره وصل می‌شود. وضعیت دزدگیر و تنظیمات حفظ می‌شود.</div></div>';
+  h+='<div class="hint">افزودن و حذف مهمان، تغییر رمز و تنظیمات عمومی ماژول فقط از پنل خود ماژول انجام می‌شود.</div></div>';
   p.innerHTML=h;
-  if(G){
-    $('gn').value=G.notify;$('gr').value=G.restore;
-    $('gsv').onclick=function(){
-      var z=+$('gz').value,la=+$('gla').value,lo=+$('glo').value;
-      if(isNaN(z)||z<-720||z>840||isNaN(la)||la<-90||la>90||isNaN(lo)||lo<-180||lo>180){msg('مقدارها را درست وارد کنید',true);return}
-      if(cmd('op=set&notify='+$('gn').value+'&restore='+$('gr').value+'&bot='+($('gb').checked?1:0)+'&tz='+z+'&lat='+la+'&lon='+lo))msg('تنظیمات ذخیره شد',false);
-    };
-  }
   [].forEach.call(p.querySelectorAll('.gcard'),function(c){
     var g=+c.dataset.g,orig=(gs||[]).filter(function(x){return x[0]===g})[0]||[];
     [].forEach.call(c.querySelectorAll('.gl .chip'),function(b){b.onclick=function(){b.classList.toggle('on')}});
@@ -588,20 +566,20 @@ function renderS(){
       if(cmd('op=guest&g='+g+'&n='+encodeURIComponent(nmv)+'&en='+(c.querySelector('.gen').checked?1:0)+'&mask='+m+'&from='+fr+'&until='+un+'&ap='+c.querySelector('.gap').value))msg('مهمان ذخیره شد',false);
     };
   });
-  $('rst').onclick=function(){if(ok()&&confirm('ماژول دوباره راه‌اندازی شود؟'))cmd('op=restart')};
 }
 
 /* ---- tabs / wiring ---- */
 function setTab(t){
   tab=t;[].forEach.call($('tabs').children,function(b){b.classList.toggle('on',b.dataset.t===t)});
   $('pL').hidden=t!=='L';$('pV').hidden=t!=='V';$('pR').hidden=t!=='R';$('pA').hidden=t!=='A';$('pS').hidden=t!=='S';
-  if(t==='V'){renderV();cmd('op=get')}
+  if(t==='V'){renderV();if(!D.main||!D.al)cmd('op=get')}
   if(t==='R'){renderR();cmd('op=rep')}
-  if(t==='A'){renderA();cmd('op=get');cmd('op=rep')}
-  if(t==='S'){renderS();cmd('op=get')}
+  if(t==='A'){renderA();if(!D.al)cmd('op=get');if(!D.log||Date.now()-(D.logAt||0)>60000)cmd('op=rep')}
+  if(t==='S'){renderS();if(!D.gs)cmd('op=get')}
 }
 [].forEach.call($('tabs').children,function(b){b.onclick=function(){setTab(b.dataset.t)}});
 $('go').onclick=open;$('stop').onclick=closeC;
+$('vtog').onclick=vtogClick;
 $('gsel').onclick=function(){selMode=!selMode;if(!selMode)selMask=0;render();gbarUI()};
 $('allon').onclick=function(){setAll(true)};$('alloff').onclick=function(){setAll(false)};
 $('tg').onclick=function(){$('cfg').hidden=!$('cfg').hidden};
@@ -609,7 +587,7 @@ setInterval(function(){if(connected&&tab==='L'&&D.main)tickSubs()},1000);
 setInterval(function(){if(connected&&!document.hidden&&dev==='online')pub('home/cfg/cmd','op=main')},30000);
 var c=ld('bagh_cfg',null);
 if(c){$('host').value=c.host;$('port').value=c.port;$('user').value=c.user;$('pass').value=c.pass;$('me').value=c.me||'';if(c.me)open()}
-render();gbarUI();status();alUI();
+render();gbarUI();vtogUI();status();alUI();
 document.addEventListener('visibilitychange',function(){if(!document.hidden&&want&&!connected){gap=2000;open()}});
 })();
 </script>
